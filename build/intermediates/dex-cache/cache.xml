@@ -16,7 +16,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="11ad07cd5d65e0809c43b8117beff68013ebb1af">
+        sha1="aedc82f527c004dca68fc2619fa95fa0e9702da7">
         <dex dex="/Users/duncanpulsifer/Sudoku/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_3280466683a8a37a71637b95b9bd062342f76277/classes.dex" />
     </item>
     <item
@@ -43,7 +43,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="10d8b816c41ad7d17a1ba3d16478da678b1eabc7">
+        sha1="2a9f01b0be89665aabc1ae05ae5ffbd8b3561fd4">
         <dex dex="/Users/duncanpulsifer/Sudoku/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_1865e7bef1768c1d0dc71bfa783788544c5185d6/classes.dex" />
     </item>
     <item
