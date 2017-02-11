@@ -2,6 +2,9 @@ package cs.dal.sudoku;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 public class MainActivity extends AppCompatActivity {
@@ -14,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     public GridView buttonGridView;
     public String[] buttons  = new String[] {"1","2","3","4","5","6","7","8","9","C"};
+    public String number;
 
 
 
@@ -30,6 +34,30 @@ public class MainActivity extends AppCompatActivity {
         ButtonGridAdapter buttonGridAdapter = new ButtonGridAdapter(MainActivity.this, buttons);
         buttonGridView.setAdapter(buttonGridAdapter);
 
+
+        buttonGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 9) {
+                    number = "";
+                } else {
+                    number = Integer.toString(position + 1);
+                }
+            }
+        });
+
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+
+                items[position] = number;
+                SudokuGridAdapter gridAdapter = new SudokuGridAdapter(MainActivity.this, items);
+                gridView.setAdapter(gridAdapter);
+
+            }
+        });
+
     }
 
 }
+

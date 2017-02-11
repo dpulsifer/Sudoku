@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
+import android.widget.TextView;
 
 import static android.content.Context.LAYOUT_INFLATER_SERVICE;
 
@@ -30,8 +30,9 @@ public class ButtonGridAdapter extends BaseAdapter{
         if(convertView ==null) {
             convertView = inflater.inflate(R.layout.button_cell, null);
         }
-        Button b = (Button) convertView.findViewById(R.id.button_item);
+        TextView b = (TextView) convertView.findViewById(R.id.button_item);
         b.setText(buttons[position]);
+
         return convertView;
 
     }

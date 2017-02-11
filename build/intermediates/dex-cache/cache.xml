@@ -12,11 +12,47 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/duncanpulsifer/Sudoku/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9913a204bd3f5b2ed1839f1c158dbdb63761bb22">
+        <dex dex="/Users/duncanpulsifer/Sudoku/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_1865e7bef1768c1d0dc71bfa783788544c5185d6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/duncanpulsifer/Sudoku/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/duncanpulsifer/Sudoku/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.1.0_693650bc0c7e89f1e81ff5243410be37dc07e230/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/duncanpulsifer/Sudoku/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
+        <dex dex="/Users/duncanpulsifer/Sudoku/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.1.0_9d327cf0870e112d7e22f70fa949bbda41e91ee2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/duncanpulsifer/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.1.0/support-annotations-25.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
+        <dex dex="/Users/duncanpulsifer/Sudoku/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.1.0_9efcfbf5a705ea4f7160a7b392cf2c78d27b688d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/duncanpulsifer/Sudoku/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="aedc82f527c004dca68fc2619fa95fa0e9702da7">
+        sha1="2beba991bc2757d07569a8af0c137af348a776cf">
         <dex dex="/Users/duncanpulsifer/Sudoku/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_3280466683a8a37a71637b95b9bd062342f76277/classes.dex" />
     </item>
     <item
@@ -36,24 +72,6 @@
         revision="25.0.2"
         sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
         <dex dex="/Users/duncanpulsifer/Sudoku/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.1.0_bd6132e6f817a4167591622fee0c0e283ea8ef49/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/duncanpulsifer/Sudoku/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="2a9f01b0be89665aabc1ae05ae5ffbd8b3561fd4">
-        <dex dex="/Users/duncanpulsifer/Sudoku/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_1865e7bef1768c1d0dc71bfa783788544c5185d6/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/duncanpulsifer/Sudoku/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.1.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/Users/duncanpulsifer/Sudoku/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.1.0_693650bc0c7e89f1e81ff5243410be37dc07e230/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -84,30 +102,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/duncanpulsifer/Sudoku/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.1.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
-        <dex dex="/Users/duncanpulsifer/Sudoku/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.1.0_9d327cf0870e112d7e22f70fa949bbda41e91ee2/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/duncanpulsifer/Sudoku/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
         <dex dex="/Users/duncanpulsifer/Sudoku/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-25.1.0_d0912c29513bffea67f75cba200f7ecc4a4a289f/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/duncanpulsifer/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.1.0/support-annotations-25.1.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
-        <dex dex="/Users/duncanpulsifer/Sudoku/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.1.0_9efcfbf5a705ea4f7160a7b392cf2c78d27b688d/classes.dex" />
     </item>
 
 </items>
