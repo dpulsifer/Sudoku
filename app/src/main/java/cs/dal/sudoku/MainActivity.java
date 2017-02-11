@@ -2,9 +2,11 @@ package cs.dal.sudoku;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -53,9 +55,16 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
 
                 if (referenceGrid[position].equals(" ")) {
-                    dugSudokuGrid[position] = number;
-                    SudokuGridAdapter gridAdapter = new SudokuGridAdapter(MainActivity.this, dugSudokuGrid);
-                    gridView.setAdapter(gridAdapter);
+                    if (ValidateChoice.confirmNumber(dugSudokuGrid, number, position)) {
+                        dugSudokuGrid[position] = number;
+                        SudokuGridAdapter gridAdapter = new SudokuGridAdapter(MainActivity.this, dugSudokuGrid);
+                        gridView.setAdapter(gridAdapter);
+                    }
+                    else {
+                        Toast toast = Toast.makeText(getApplicationContext(), "Invalid Selection. Try another number.", Toast.LENGTH_SHORT);
+                        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                        toast.show();
+                    }
                 }
 
             }
