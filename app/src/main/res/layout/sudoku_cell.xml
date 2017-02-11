@@ -13,6 +13,6 @@
         android:layout_weight="1"
         android:textColor="#000000"
         android:background="#FFFFFF"
-        android:id="@+id/grid_item"/>
+        android:id="@+id/grid_item" />
 
 </LinearLayout>

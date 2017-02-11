@@ -27,6 +27,9 @@ public class SudokuGridAdapter extends BaseAdapter
 
     public View getView(int position, View convertView, ViewGroup parent) {
 
+        //int color = 0xFFFFFF;
+        //if (!items[position].equals(" ")) { color = 0xd3d3d3;}
+
         if(convertView ==null) {
             convertView = inflater.inflate(R.layout.sudoku_cell, null);
         }
@@ -34,6 +37,8 @@ public class SudokuGridAdapter extends BaseAdapter
         t.setText(items[position]);
         return convertView;
     }
+
+
 
     @Override
     public int getCount() { return items.length; }

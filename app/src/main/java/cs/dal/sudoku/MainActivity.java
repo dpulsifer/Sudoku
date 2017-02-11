@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
         dugSudokuGrid = SolvedSudokuDigger.digPuzzle(solvedSudokuGrid, 0);
         referenceGrid = dugSudokuGrid.clone();
 
-
         gridView = (GridView)this.findViewById(R.id.myGridView);
         SudokuGridAdapter gridAdapter = new SudokuGridAdapter(MainActivity.this, dugSudokuGrid);
         gridView.setAdapter(gridAdapter);
