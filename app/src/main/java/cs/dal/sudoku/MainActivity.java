@@ -10,10 +10,9 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.Toast;
 
-import cs.dal.gridLogic.CheckForWin;
 import cs.dal.gridLogic.SolvedSudokuDigger;
 import cs.dal.gridLogic.SolvedSudokuGenerator;
-import cs.dal.gridLogic.ValidateChoice;
+import cs.dal.gridLogic.Validation;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -94,16 +93,21 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
 
                 if (referenceGrid[position].equals(" ") && (number != null)) {
+
                     if (number.equals(" ")) {
+
                         dugSudokuGrid[position] = number;
                         SudokuGridAdapter gridAdapter = new SudokuGridAdapter(MainActivity.this, dugSudokuGrid);
                         gridView.setAdapter(gridAdapter);
+
                     }
-                    else if (ValidateChoice.confirmNumber(dugSudokuGrid, number, position) && !number.equals(" ")) {
+                    else if (Validation.confirmNumber(dugSudokuGrid, number, position) && !number.equals(" ")) {
+
                         dugSudokuGrid[position] = number;
                         SudokuGridAdapter gridAdapter = new SudokuGridAdapter(MainActivity.this, dugSudokuGrid);
                         gridView.setAdapter(gridAdapter);
-                        if (CheckForWin.confirmWin(solvedSudokuGrid, dugSudokuGrid)) {
+
+                        if (Validation.confirmWin(solvedSudokuGrid, dugSudokuGrid)) {
                             Toast toast = Toast.makeText(getApplicationContext(), "CONGRATULATIONS! YOU WIN!", Toast.LENGTH_LONG);
                             toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
                             toast.show();
@@ -111,12 +115,15 @@ public class MainActivity extends AppCompatActivity {
                             Intent i = new Intent(MainActivity.this, SelectionActivity.class);
                             startActivity(i);
                             finish();
+
                         }
                     }
                     else {
+
                         Toast toast = Toast.makeText(getApplicationContext(), "Invalid Selection. Try another number.", Toast.LENGTH_SHORT);
                         toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
                         toast.show();
+
                     }
                 }
 

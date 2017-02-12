@@ -8,7 +8,7 @@ package cs.dal.gridLogic;
  * found (not valid).
  */
 
-public class ValidateChoice {
+public class Validation {
 
     public static boolean confirmNumber(String[] sudokuGrid, String numberSelection, int position) {
 
@@ -76,5 +76,14 @@ public class ValidateChoice {
 
         return true;
 
+    }
+
+    public static boolean confirmWin(String[] solvedGrid, String[] userGrid) {
+
+        for (int i = 0; i < 81; i++) {
+            if (solvedGrid[i] != userGrid[i]) { return false; }
+        }
+
+        return true;
     }
 }
