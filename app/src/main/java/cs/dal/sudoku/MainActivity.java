@@ -10,17 +10,23 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import cs.dal.gridLogic.CheckForWin;
+import cs.dal.gridLogic.SolvedSudokuDigger;
+import cs.dal.gridLogic.SolvedSudokuGenerator;
+import cs.dal.gridLogic.ValidateChoice;
+
 public class MainActivity extends AppCompatActivity {
 
-    public GridView gridView;
-    public String[] solvedSudokuGrid;
-    public String[] dugSudokuGrid;
-    public String[] referenceGrid;
+    GridView gridView;
+    String[] solvedSudokuGrid;
+    String[] dugSudokuGrid;
+    String[] referenceGrid;
 
-    public GridView buttonGridView;
-    public String[] buttons  = new String[] {"1","2","3","4","5","6","7","8","9","⌫"};
-    public String number;
-    public int difficultyLevel;
+    GridView buttonGridView;
+    String[] buttons  = new String[] {"1","2","3","4","5","6","7","8","9","⌫"};
+    String number;
+
+    int difficultyLevel;
 
     Button home;
     Button reset;
@@ -55,19 +61,22 @@ public class MainActivity extends AppCompatActivity {
 
         difficultyLevel = getIntent().getExtras().getInt("DIFF_LEVEL");
 
+        //generate sudoku puzzle
         solvedSudokuGrid = SolvedSudokuGenerator.generatePuzzle();
         dugSudokuGrid = SolvedSudokuDigger.digPuzzle(solvedSudokuGrid, difficultyLevel);
         referenceGrid = dugSudokuGrid.clone();
 
+        //generate sudoku grid
         gridView = (GridView)this.findViewById(R.id.myGridView);
         SudokuGridAdapter gridAdapter = new SudokuGridAdapter(MainActivity.this, dugSudokuGrid);
         gridView.setAdapter(gridAdapter);
 
+        //generate button grid
         buttonGridView = (GridView)this.findViewById(R.id.buttonGridView);
         ButtonGridAdapter buttonGridAdapter = new ButtonGridAdapter(MainActivity.this, buttons);
         buttonGridView.setAdapter(buttonGridAdapter);
 
-
+        //handle number selection from button grid
         buttonGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -79,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //handle numbers being placed on puzzle grid
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
@@ -93,6 +103,15 @@ public class MainActivity extends AppCompatActivity {
                         dugSudokuGrid[position] = number;
                         SudokuGridAdapter gridAdapter = new SudokuGridAdapter(MainActivity.this, dugSudokuGrid);
                         gridView.setAdapter(gridAdapter);
+                        if (CheckForWin.confirmWin(solvedSudokuGrid, dugSudokuGrid)) {
+                            Toast toast = Toast.makeText(getApplicationContext(), "CONGRATULATIONS! YOU WIN!", Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                            toast.show();
+
+                            Intent i = new Intent(MainActivity.this, SelectionActivity.class);
+                            startActivity(i);
+                            finish();
+                        }
                     }
                     else {
                         Toast toast = Toast.makeText(getApplicationContext(), "Invalid Selection. Try another number.", Toast.LENGTH_SHORT);
