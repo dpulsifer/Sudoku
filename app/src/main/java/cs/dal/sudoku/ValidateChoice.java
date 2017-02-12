@@ -15,8 +15,6 @@ public class ValidateChoice {
         int xCoord = position / 9;
         int yCoord = position % 9;
 
-        System.out.println(xCoord + "|" + yCoord + "|" + position);
-
         if (checkRow(puzzle, xCoord, numberSelection) &&
                 checkColumn(puzzle, yCoord, numberSelection) &&
                 checkBox(puzzle, xCoord, yCoord, numberSelection)) {
@@ -44,7 +42,6 @@ public class ValidateChoice {
     private static boolean checkRow(String[][] puzzle, int xCoord, String numberSelection) {
 
         for (int i = 0; i < 9; i++) {
-            System.out.println(puzzle[xCoord][i] + "|" + numberSelection);
             if (puzzle[xCoord][i].equals(numberSelection)) { return false; }
         }
 
@@ -56,7 +53,6 @@ public class ValidateChoice {
 
         for (int i = 0; i < 9; i++) {
             if (sudokuGrid[i][yCoord].equals(numberSelection)) {
-                //System.out.println(sudokuGrid[i][yCoord] + "|" + numberSelection);
                 return false; }
         }
 
@@ -72,7 +68,6 @@ public class ValidateChoice {
         for (int i = startingXCoord; i < startingXCoord + 3; i++) {
             for (int j = startingYCoord; j < startingYCoord + 3; j++) {
                 if (sudokuGrid[i][j].equals(numberSelection)) {
-                    //System.out.println(sudokuGrid[i][j] + "|" + numberSelection);
                     return false; }
             }
         }

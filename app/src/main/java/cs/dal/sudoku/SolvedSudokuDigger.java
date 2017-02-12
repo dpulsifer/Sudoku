@@ -9,16 +9,20 @@ import java.util.Random;
 
 public class SolvedSudokuDigger {
 
-    private static ArrayList<Integer> gridCoordinatesRemoved = new ArrayList<Integer>(81);
-    private static ArrayList<Integer> gridCoordinatesChecked = new ArrayList<Integer>(81);
+    private static ArrayList<Integer> gridCoordinatesRemoved;
+    private static ArrayList<Integer> gridCoordinatesChecked;
 
     private static int[] totalElementsForDiffLevel = new int[]{45, 35, 30, 25};
     private static int[] lowerBoundForDiffLevel = new int[]{4,3,2,0};
 
-    private static Random random = new Random();
+    private static Random random;
 
     public static String[] digPuzzle(String[] sudokuGrid, int difficultyLevel) {
 
+        random = new Random();
+
+        gridCoordinatesRemoved = new ArrayList<Integer>(81);
+        gridCoordinatesChecked = new ArrayList<Integer>(81);
 
         for (int j = 0; j < 81; j++) {
             gridCoordinatesRemoved.add(j, j);

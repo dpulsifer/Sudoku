@@ -1,10 +1,12 @@
 package cs.dal.sudoku;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.Toast;
 
@@ -16,18 +18,45 @@ public class MainActivity extends AppCompatActivity {
     public String[] referenceGrid;
 
     public GridView buttonGridView;
-    public String[] buttons  = new String[] {"1","2","3","4","5","6","7","8","9","C"};
+    public String[] buttons  = new String[] {"1","2","3","4","5","6","7","8","9","⌫"};
     public String number;
+    public int difficultyLevel;
 
-
+    Button home;
+    Button reset;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        home = (Button) findViewById(R.id.main_home);
+
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(MainActivity.this, SelectionActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
+
+        reset = (Button) findViewById(R.id.main_reset);
+
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dugSudokuGrid = referenceGrid.clone();
+                SudokuGridAdapter gridAdapter = new SudokuGridAdapter(MainActivity.this, dugSudokuGrid);
+                gridView.setAdapter(gridAdapter);
+            }
+        });
+
+        difficultyLevel = getIntent().getExtras().getInt("DIFF_LEVEL");
+
         solvedSudokuGrid = SolvedSudokuGenerator.generatePuzzle();
-        dugSudokuGrid = SolvedSudokuDigger.digPuzzle(solvedSudokuGrid, 0);
+        dugSudokuGrid = SolvedSudokuDigger.digPuzzle(solvedSudokuGrid, difficultyLevel);
         referenceGrid = dugSudokuGrid.clone();
 
         gridView = (GridView)this.findViewById(R.id.myGridView);
@@ -43,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 9) {
-                    number = "";
+                    number = " ";
                 } else {
                     number = Integer.toString(position + 1);
                 }
@@ -54,8 +83,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
 
-                if (referenceGrid[position].equals(" ")) {
-                    if (ValidateChoice.confirmNumber(dugSudokuGrid, number, position)) {
+                if (referenceGrid[position].equals(" ") && (number != null)) {
+                    if (number.equals(" ")) {
+                        dugSudokuGrid[position] = number;
+                        SudokuGridAdapter gridAdapter = new SudokuGridAdapter(MainActivity.this, dugSudokuGrid);
+                        gridView.setAdapter(gridAdapter);
+                    }
+                    else if (ValidateChoice.confirmNumber(dugSudokuGrid, number, position) && !number.equals(" ")) {
                         dugSudokuGrid[position] = number;
                         SudokuGridAdapter gridAdapter = new SudokuGridAdapter(MainActivity.this, dugSudokuGrid);
                         gridView.setAdapter(gridAdapter);
