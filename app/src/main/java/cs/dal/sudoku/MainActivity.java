@@ -21,14 +21,23 @@ public class MainActivity extends AppCompatActivity {
     String[] dugSudokuGrid;
     String[] referenceGrid;
 
-    GridView buttonGridView;
-    String[] buttons  = new String[] {"1","2","3","4","5","6","7","8","9","⌫"};
-    String number;
+    String numberSelection;
 
     int difficultyLevel;
 
     Button home;
     Button reset;
+
+    Button button1;
+    Button button2;
+    Button button3;
+    Button button4;
+    Button button5;
+    Button button6;
+    Button button7;
+    Button button8;
+    Button button9;
+    Button buttonC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,40 +79,34 @@ public class MainActivity extends AppCompatActivity {
         SudokuGridAdapter gridAdapter = new SudokuGridAdapter(MainActivity.this, dugSudokuGrid);
         gridView.setAdapter(gridAdapter);
 
-        //generate button grid
-        buttonGridView = (GridView)this.findViewById(R.id.buttonGridView);
-        ButtonGridAdapter buttonGridAdapter = new ButtonGridAdapter(MainActivity.this, buttons);
-        buttonGridView.setAdapter(buttonGridAdapter);
-
-        //handle number selection from button grid
-        buttonGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 9) {
-                    number = " ";
-                } else {
-                    number = Integer.toString(position + 1);
-                }
-            }
-        });
+        button1 = (Button) findViewById(R.id.button1);
+        button2 = (Button) findViewById(R.id.button2);
+        button3 = (Button) findViewById(R.id.button3);
+        button4 = (Button) findViewById(R.id.button4);
+        button5 = (Button) findViewById(R.id.button5);
+        button6 = (Button) findViewById(R.id.button6);
+        button7 = (Button) findViewById(R.id.button7);
+        button8 = (Button) findViewById(R.id.button8);
+        button9 = (Button) findViewById(R.id.button9);
+        buttonC = (Button) findViewById(R.id.buttonC);
 
         //handle numbers being placed on puzzle grid
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
 
-                if (referenceGrid[position].equals(" ") && (number != null)) {
+                if (referenceGrid[position].equals(" ") && (numberSelection != null)) {
 
-                    if (number.equals(" ")) {
+                    if (numberSelection.equals(" ")) {
 
-                        dugSudokuGrid[position] = number;
+                        dugSudokuGrid[position] = numberSelection;
                         SudokuGridAdapter gridAdapter = new SudokuGridAdapter(MainActivity.this, dugSudokuGrid);
                         gridView.setAdapter(gridAdapter);
 
                     }
-                    else if (Validation.confirmNumber(dugSudokuGrid, number, position) && !number.equals(" ")) {
+                    else if (Validation.confirmNumber(dugSudokuGrid, numberSelection, position) && !numberSelection.equals(" ")) {
 
-                        dugSudokuGrid[position] = number;
+                        dugSudokuGrid[position] = numberSelection;
                         SudokuGridAdapter gridAdapter = new SudokuGridAdapter(MainActivity.this, dugSudokuGrid);
                         gridView.setAdapter(gridAdapter);
 
@@ -130,6 +133,42 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void getNumberSelected(View view) {
+
+        switch (view.getId()) {
+            case R.id.button1:
+                numberSelection = "1";
+                break;
+            case R.id.button2:
+                numberSelection = "2";
+                break;
+            case R.id.button3:
+                numberSelection = "3";
+                break;
+            case R.id.button4:
+                numberSelection = "4";
+                break;
+            case R.id.button5:
+                numberSelection = "5";
+                break;
+            case R.id.button6:
+                numberSelection = "6";
+                break;
+            case R.id.button7:
+                numberSelection = "7";
+                break;
+            case R.id.button8:
+                numberSelection = "8";
+                break;
+            case R.id.button9:
+                numberSelection = "9";
+                break;
+            case R.id.buttonC:
+                numberSelection = " ";
+                break;
+        }
     }
 
 }
