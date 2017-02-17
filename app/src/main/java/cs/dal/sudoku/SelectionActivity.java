@@ -1,6 +1,7 @@
 package cs.dal.sudoku;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +19,8 @@ public class SelectionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selection);
 
+        final MediaPlayer mediaPlayer = MediaPlayer.create(SelectionActivity.this, R.raw.switchsound);
+
         easy = (Button) findViewById(R.id.buttonEasy);
         medium = (Button) findViewById(R.id.buttonMedium);
         hard = (Button) findViewById(R.id.buttonHard);
@@ -26,6 +29,8 @@ public class SelectionActivity extends AppCompatActivity {
         easy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mediaPlayer.start();
+
                 Intent i;
                 i = new Intent(SelectionActivity.this, MainActivity.class);
                 i.putExtra("DIFF_LEVEL", 0);
@@ -36,6 +41,8 @@ public class SelectionActivity extends AppCompatActivity {
         medium.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mediaPlayer.start();
+
                 Intent i;
                 i = new Intent(SelectionActivity.this, MainActivity.class);
                 i.putExtra("DIFF_LEVEL", 1);
@@ -46,6 +53,8 @@ public class SelectionActivity extends AppCompatActivity {
         hard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mediaPlayer.start();
+
                 Intent i;
                 i = new Intent(SelectionActivity.this, MainActivity.class);
                 i.putExtra("DIFF_LEVEL", 2);
@@ -56,6 +65,8 @@ public class SelectionActivity extends AppCompatActivity {
         evil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mediaPlayer.start();
+
                 Intent i;
                 i = new Intent(SelectionActivity.this, MainActivity.class);
                 i.putExtra("DIFF_LEVEL", 3);
