@@ -9,6 +9,8 @@ import android.widget.Button;
 
 public class SelectionActivity extends AppCompatActivity {
 
+    MediaPlayer mediaPlayer;
+
     Button easy;
     Button medium;
     Button hard;
@@ -19,7 +21,8 @@ public class SelectionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selection);
 
-        final MediaPlayer mediaPlayer = MediaPlayer.create(SelectionActivity.this, R.raw.switchsound);
+        mediaPlayer = MediaPlayer.create(SelectionActivity.this, R.raw.switchsound);
+
 
         easy = (Button) findViewById(R.id.buttonEasy);
         medium = (Button) findViewById(R.id.buttonMedium);

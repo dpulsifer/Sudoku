@@ -1,6 +1,7 @@
 package cs.dal.sudoku;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -15,6 +16,8 @@ import cs.dal.gridLogic.SolvedSudokuGenerator;
 import cs.dal.gridLogic.Validation;
 
 public class MainActivity extends AppCompatActivity {
+
+    MediaPlayer mediaPlayer;
 
     GridView gridView;
     String[] solvedSudokuGrid;
@@ -44,11 +47,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.chubbycat);
+        mediaPlayer.setLooping(true);
+        mediaPlayer.start();
+
         home = (Button) findViewById(R.id.main_home);
 
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                mediaPlayer.release();
+                mediaPlayer = null;
 
                 Intent i = new Intent(MainActivity.this, SelectionActivity.class);
                 startActivity(i);
@@ -110,10 +120,13 @@ public class MainActivity extends AppCompatActivity {
                         SudokuGridAdapter gridAdapter = new SudokuGridAdapter(MainActivity.this, dugSudokuGrid);
                         gridView.setAdapter(gridAdapter);
 
-                        if (Validation.confirmWin(solvedSudokuGrid, dugSudokuGrid)) {
+                        if (Validation.confirmWin(solvedSudokuGrid)) {
                             Toast toast = Toast.makeText(getApplicationContext(), "CONGRATULATIONS! YOU WIN!", Toast.LENGTH_LONG);
                             toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
                             toast.show();
+
+                            mediaPlayer.release();
+                            mediaPlayer = null;
 
                             Intent i = new Intent(MainActivity.this, SelectionActivity.class);
                             startActivity(i);

@@ -78,10 +78,10 @@ public class Validation {
 
     }
 
-    public static boolean confirmWin(String[] solvedGrid, String[] userGrid) {
+    public static boolean confirmWin(String[] solvedGrid) {
 
         for (int i = 0; i < 81; i++) {
-            if (solvedGrid[i] != userGrid[i]) { return false; }
+            if (solvedGrid[i].equals(" ")) { return false; }
         }
 
         return true;
