@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
                         SudokuGridAdapter gridAdapter = new SudokuGridAdapter(MainActivity.this, dugSudokuGrid);
                         gridView.setAdapter(gridAdapter);
 
-                        if (Validation.confirmWin(solvedSudokuGrid)) {
+                        if (Validation.confirmWin(dugSudokuGrid)) {
                             Toast toast = Toast.makeText(getApplicationContext(), "CONGRATULATIONS! YOU WIN!", Toast.LENGTH_LONG);
                             toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
                             toast.show();
