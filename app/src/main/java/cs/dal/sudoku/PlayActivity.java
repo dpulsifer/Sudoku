@@ -15,7 +15,7 @@ import cs.dal.gridLogic.SolvedSudokuDigger;
 import cs.dal.gridLogic.SolvedSudokuGenerator;
 import cs.dal.gridLogic.Validation;
 
-public class MainActivity extends AppCompatActivity {
+public class PlayActivity extends AppCompatActivity {
 
     MediaPlayer mediaPlayer;
 
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.chubbycat);
+        mediaPlayer = MediaPlayer.create(PlayActivity.this, R.raw.chubbycat);
         mediaPlayer.setLooping(true);
         mediaPlayer.start();
 
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 mediaPlayer.release();
                 mediaPlayer = null;
 
-                Intent i = new Intent(MainActivity.this, SelectionActivity.class);
+                Intent i = new Intent(PlayActivity.this, SelectionActivity.class);
                 startActivity(i);
                 finish();
             }
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dugSudokuGrid = referenceGrid.clone();
-                SudokuGridAdapter gridAdapter = new SudokuGridAdapter(MainActivity.this, dugSudokuGrid);
+                SudokuGridAdapter gridAdapter = new SudokuGridAdapter(PlayActivity.this, dugSudokuGrid);
                 gridView.setAdapter(gridAdapter);
             }
         });
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
         //generate sudoku grid
         gridView = (GridView)this.findViewById(R.id.myGridView);
-        SudokuGridAdapter gridAdapter = new SudokuGridAdapter(MainActivity.this, dugSudokuGrid);
+        SudokuGridAdapter gridAdapter = new SudokuGridAdapter(PlayActivity.this, dugSudokuGrid);
         gridView.setAdapter(gridAdapter);
 
         button1 = (Button) findViewById(R.id.button1);
@@ -110,14 +110,14 @@ public class MainActivity extends AppCompatActivity {
                     if (numberSelection.equals(" ")) {
 
                         dugSudokuGrid[position] = numberSelection;
-                        SudokuGridAdapter gridAdapter = new SudokuGridAdapter(MainActivity.this, dugSudokuGrid);
+                        SudokuGridAdapter gridAdapter = new SudokuGridAdapter(PlayActivity.this, dugSudokuGrid);
                         gridView.setAdapter(gridAdapter);
 
                     }
                     else if (Validation.confirmNumber(dugSudokuGrid, numberSelection, position) && !numberSelection.equals(" ")) {
 
                         dugSudokuGrid[position] = numberSelection;
-                        SudokuGridAdapter gridAdapter = new SudokuGridAdapter(MainActivity.this, dugSudokuGrid);
+                        SudokuGridAdapter gridAdapter = new SudokuGridAdapter(PlayActivity.this, dugSudokuGrid);
                         gridView.setAdapter(gridAdapter);
 
                         if (Validation.confirmWin(dugSudokuGrid)) {
@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
                             mediaPlayer.release();
                             mediaPlayer = null;
 
-                            Intent i = new Intent(MainActivity.this, SelectionActivity.class);
+                            Intent i = new Intent(PlayActivity.this, SelectionActivity.class);
                             startActivity(i);
                             finish();
 

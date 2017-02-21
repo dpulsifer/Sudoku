@@ -10,7 +10,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="20dp"
-    tools:context="cs.dal.sudoku.MainActivity"
+    tools:context="cs.dal.sudoku.PlayActivity"
     android:weightSum="1">
 
     <RelativeLayout

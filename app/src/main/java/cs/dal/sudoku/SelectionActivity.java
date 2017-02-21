@@ -35,7 +35,7 @@ public class SelectionActivity extends AppCompatActivity {
                 mediaPlayer.start();
 
                 Intent i;
-                i = new Intent(SelectionActivity.this, MainActivity.class);
+                i = new Intent(SelectionActivity.this, PlayActivity.class);
                 i.putExtra("DIFF_LEVEL", 0);
                 startActivity(i);
             }
@@ -47,7 +47,7 @@ public class SelectionActivity extends AppCompatActivity {
                 mediaPlayer.start();
 
                 Intent i;
-                i = new Intent(SelectionActivity.this, MainActivity.class);
+                i = new Intent(SelectionActivity.this, PlayActivity.class);
                 i.putExtra("DIFF_LEVEL", 1);
                 startActivity(i);
             }
@@ -59,7 +59,7 @@ public class SelectionActivity extends AppCompatActivity {
                 mediaPlayer.start();
 
                 Intent i;
-                i = new Intent(SelectionActivity.this, MainActivity.class);
+                i = new Intent(SelectionActivity.this, PlayActivity.class);
                 i.putExtra("DIFF_LEVEL", 2);
                 startActivity(i);
             }
@@ -71,7 +71,7 @@ public class SelectionActivity extends AppCompatActivity {
                 mediaPlayer.start();
 
                 Intent i;
-                i = new Intent(SelectionActivity.this, MainActivity.class);
+                i = new Intent(SelectionActivity.this, PlayActivity.class);
                 i.putExtra("DIFF_LEVEL", 3);
                 startActivity(i);
             }
