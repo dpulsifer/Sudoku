@@ -1,19 +1,33 @@
-CSCI 4176 - Assignment 2 - Sudoku Application
+## Sudoku
 
-Task:
+This application provides users the ability to play (and reset) 4 different levels of Sudoku puzzle: Easy, Medium, Hard, and Evil. The Play activity interface displays the Sudoku grid and 10 buttons (1-9 and a clear button). Validation is done on each attempt to place a number to ensure that the placement is valid. Users are informed when they have solved the puzzle.
 
-Implement an Android application that implements the Sudoku puzzle. The application should be a native Android application. The application should meet the following minimum requirements:
+Apart from the provided basic assignment instructions, the application also does or has the following features:
+* Generate a (somewhat) unique random puzzle at difficulty selection.
+* App contains a background.
+* App plays sound effects on some button clicks and has background music
+  during play.
 
-* The interface should allow the user to start and reset the puzzle. (You may hard code in a single puzzle to start with, create a small database of puzzles, or if you are ambitious, grab new puzzles at runtime from various websites, or even generate your own.)
-* The interface should display the Sudoku grid and allow the player to fill elements with valid values. I.e., if the player tries to fill an element with a digit that is used, the app should not allow it.
-* The interface should inform the player once they have solved or lost the puzzle—when no elements can be filled.
+### Puzzle generation:
 
-Naturally, you may choose to improve on this interface. For example, items like background, sound effects, sound-tracks, suggestions, and animations add polish to the application and make it even cooler. Marks will be awarded partly on how polished the application is.
+A solved sudoku grid (based on the manipulation of a hard-coded solved sudoku grid) is generated as a result of between 100 and 10,000 manipulations to the original grid.
 
-For exceptional functionality consider implementing 
-  * a timing option to time how long the player takes to solve the puzzle, 
-  * a best times list, 
-  * provide new puzzles for the player to solve, 
-  * an undo/redo function to let the player undo a number of elements, 
-  * suggest possible hints to the player, 
-  * anything else you can think of that makes the game cooler. The list is endless.
+Manipulations are as follows:
+* flipHorizontal: flips the grid along the axis of the 5th row.
+* flipVertical: flips the grid along the axis of the 5th column.
+* flipMinorDiagonal: flips the grid along the minor diagonal.
+* flipMajorDiagonal: flips the grid along the major diagonal.
+* exchangeDigits: exchanges 2 random digits within the grid.
+* interchangeRows: interchanges rows within 3 row sections of the grid, or interchanges the 3 sections.
+* interchangeColumns: interchanges columns within 3 column sections of the grid, or interchanges the 3 sections.
+
+Based on the level of difficulty selected the generated solved Sudoku grid is "dug" down on to remove entries.
+
+Entries of the grid are randomly removed based
+on the following levels of difficulty:
+* Easy: 45 given entries on grid with a minimum of 4 entries in each row, column, and 3x3 square.
+* Medium: 35 given entries on a grid with a minimum of 3 entries in each row, column, and 3x3 square.
+* Hard: 30 given entries on a grid with a minimum of 2 entries in each row, column, and 3x3 square.
+* Evil: 25 given entries on a grid with a minimum of 0 entries in each row, column, and 3x3 square.
+
+This process results in a playable Sudoku grid.
